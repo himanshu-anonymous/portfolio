@@ -23,9 +23,9 @@ const Contact = () => {
             <ul className="accolades-list">
               <li>Champion — GTC (2023–2025)</li>
               <li>Winner — YC Hack Poona Event</li>
-              <li>Top Contender — Gemini Labs</li>
+              <li>Top Contender — Gemini Agentic AI Labs</li>
               <li>Winner — Nvidia IDRIS Hackathon</li>
-              <li>Power to Fly Diversity Hackathon</li>
+              <li>Winner — Power to Fly Diversity Hackathon</li>
             </ul>
           </div>
           <div className="contact-box">
