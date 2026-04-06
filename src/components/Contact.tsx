@@ -20,21 +20,13 @@ const Contact = () => {
               </a>
             </p>
             <h4>Accolades</h4>
-            <p>
-              Champion — GTC (2023–2025)
-            </p>
-            <p>
-              Winner — YC Hack Poona Event
-            </p>
-            <p>
-              Top Contender — Gemini Labs
-            </p>
-            <p>
-              Winner — Nvidia IDRIS Hackathon
-            </p>
-            <p>
-              Power to Fly Diversity Hackathon
-            </p>
+            <ul className="accolades-list">
+              <li>Champion — GTC (2023–2025)</li>
+              <li>Winner — YC Hack Poona Event</li>
+              <li>Top Contender — Gemini Labs</li>
+              <li>Winner — Nvidia IDRIS Hackathon</li>
+              <li>Power to Fly Diversity Hackathon</li>
+            </ul>
           </div>
           <div className="contact-box">
             <h4>Social</h4>

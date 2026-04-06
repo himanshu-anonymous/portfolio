@@ -59,6 +59,33 @@ a.contact-social {
   opacity: 0.5;
 }
 
+.accolades-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.accolades-list li {
+  font-size: 14px;
+  color: #adacac;
+  position: relative;
+  padding-left: 16px;
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+.accolades-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--accentColor);
+  font-size: 10px;
+  top: 2px;
+}
+
 @media only screen and (max-width: 1600px) {
   .contact-section h3 {
     font-size: 50px;
