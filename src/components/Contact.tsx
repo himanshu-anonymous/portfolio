@@ -24,7 +24,16 @@ const Contact = () => {
               Champion — GTC (2023–2025)
             </p>
             <p>
-              Winner — YC Hackathon Startup Event
+              Winner — YC Hack Poona Event
+            </p>
+            <p>
+              Top Contender — Gemini Labs
+            </p>
+            <p>
+              Winner — Nvidia IDRIS Hackathon
+            </p>
+            <p>
+              Power to Fly Diversity Hackathon
             </p>
           </div>
           <div className="contact-box">
