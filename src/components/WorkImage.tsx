@@ -23,22 +23,26 @@ const WorkImage = (props: Props) => {
 
   return (
     <div className="work-image">
-      <a
+      <div
         className="work-image-in"
-        href={props.link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setIsVideo(false)}
-        target="_blank"
         data-cursor={"disable"}
       >
         {props.link && (
-          <div className="work-link">
+          <a 
+            className="work-link" 
+            href={props.link} 
+            target="_blank"
+            rel="noreferrer"
+            onClick={(e) => e.stopPropagation()}
+          >
             <MdArrowOutward />
-          </div>
+          </a>
         )}
         <img src={props.image} alt={props.alt} />
         {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
-      </a>
+      </div>
     </div>
   );
 };

@@ -108,6 +108,9 @@ const Work = () => {
           </div>
 
           <div className="work-stack-side">
+            <div className="work-stack-instruction" style={{ textAlign: "center", marginBottom: "1rem", color: "rgba(255, 255, 255, 0.5)", fontSize: "0.85rem", letterSpacing: "1px", textTransform: "uppercase" }}>
+              Click on card to view next
+            </div>
             <div className="gallery-stack-container" onClick={goToNext} data-cursor="disable">
               {projects.map((project, index) => {
                 const offset = (index - currentIndex + projects.length) % projects.length;
