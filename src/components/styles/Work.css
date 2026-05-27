@@ -151,17 +151,20 @@
 .work-image {
   display: flex;
   width: 100%;
+  height: 100%;
   justify-content: center;
 }
 
 .work-image-in {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .work-link {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
   background-color: var(--backgroundColor);
   width: 50px;
   border-radius: 50px;
@@ -174,6 +177,7 @@
     inset 0px 0px 10px 0px #393939;
   transition: 0.3s;
   opacity: 0;
+  z-index: 10;
 }
 
 .work-image a:hover {
@@ -192,13 +196,14 @@
   left: 0;
   background-color: #000;
   object-fit: cover;
+  border-radius: inherit;
 }
 
 .work-image img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: inherit;
 }
 
 /* ── Responsive ── */

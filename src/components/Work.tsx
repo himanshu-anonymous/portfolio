@@ -111,15 +111,27 @@ const Work = () => {
             <div className="work-stack-instruction" style={{ textAlign: "center", marginBottom: "1rem", color: "rgba(255, 255, 255, 0.5)", fontSize: "0.85rem", letterSpacing: "1px", textTransform: "uppercase" }}>
               Click on card to view next
             </div>
-            <div className="gallery-stack-container" onClick={goToNext} data-cursor="disable">
+            <div className="gallery-stack-container" style={{ perspective: "900px" }} onClick={goToNext} data-cursor="disable">
               {projects.map((project, index) => {
-                const offset = (index - currentIndex + projects.length) % projects.length;
-
-                let zIndex = projects.length - offset;
-                let scale = 1 - offset * 0.05;
-                let rotate = offset === 0 ? 0 : offset % 2 === 0 ? -offset * 3 : offset * 2;
-                let translateY = offset * 15;
-                let opacity = offset < 4 ? 1 - offset * 0.15 : 0;
+                let rel = index - currentIndex;
+                const total = projects.length;
+                
+                // Wrap around for circular effect
+                if (rel < -Math.floor(total / 2)) rel += total;
+                if (rel > Math.floor(total / 2)) rel -= total;
+                
+                const absRel = Math.abs(rel);
+                const zStep = 80;
+                const scaleStep = 0.12;
+                const gap = 40;
+                
+                const z = -absRel * zStep;
+                const scale = 1 / (1 + absRel * scaleStep);
+                const x = rel * gap;
+                const opacity = rel === 0 ? 1 : Math.max(0, 0.7 - 0.1 * absRel);
+                const y = rel * 60;
+                const rotate = rel * 10;
+                const zIndex = 100 - absRel;
 
                 return (
                   <div
@@ -127,9 +139,12 @@ const Work = () => {
                     className="gallery-stack-card"
                     style={{
                       zIndex: zIndex,
-                      transform: `scale(${scale}) translateY(${translateY}px) rotate(${rotate}deg)`,
+                      transform: `translateX(${x}px) translateY(${y}px) translateZ(${z}px) scale(${scale}) rotateZ(${rotate}deg)`,
                       opacity: opacity,
-                      pointerEvents: offset === 0 ? 'auto' : 'none'
+                      pointerEvents: rel === 0 ? 'auto' : 'none',
+                      transition: 'transform 0.5s cubic-bezier(0.4, 2, 0.3, 1), opacity 0.4s',
+                      boxShadow: rel === 0 ? "0 8px 32px rgba(0,0,0,0.18)" : "0 2px 8px rgba(0,0,0,0.08)",
+                      borderRadius: "36px"
                     }}
                   >
                     <WorkImage

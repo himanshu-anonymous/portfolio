@@ -26,14 +26,15 @@ const Navbar = () => {
     let links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
       let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
-        }
-      });
+      let section = element.getAttribute("data-href");
+      if (section && section.startsWith("#")) {
+        element.addEventListener("click", (e) => {
+          if (window.innerWidth > 1024) {
+            e.preventDefault();
+            smoother.scrollTo(section, true, "top top");
+          }
+        });
+      }
     });
     window.addEventListener("resize", () => {
       ScrollSmoother.refresh(true);
@@ -63,6 +64,11 @@ const Navbar = () => {
           <li>
             <a data-href="#work" href="#work">
               <HoverLinks text="WORK" />
+            </a>
+          </li>
+          <li>
+            <a href="/artfolio/">
+              <HoverLinks text="ARTFOLIO" />
             </a>
           </li>
           <li>
